@@ -5,11 +5,19 @@
     .module('sample-app')
     .controller('MainController', MainController);
 
-  MainController.$inject = ['$state', '$compile', '$scope'];
+  MainController.$inject = ['$state', '$compile', '$scope', '$document'];
 
-  function MainController($state, $compile, $scope){
+  function MainController($state, $compile, $scope, $document){
 
     var _this = this;
+    var RIGHT_KEY = 39;
+
+    $scope.keyhandler = function(e) {
+      if(e.keyCode === RIGHT_KEY) {
+        console.error("Hejs");
+      }
+    }
+
 
     this.mainOptions = {
       sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],

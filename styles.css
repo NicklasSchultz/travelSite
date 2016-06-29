@@ -73,3 +73,26 @@ p{
 .section{
 	text-align:center;
 }
+
+.rightArrow {
+    right: 15px;
+    border-width: 38.5px 0 38.5px 34px;
+    border-color: transparent transparent transparent #fff;
+    position: absolute;
+    border-style: solid;
+    z-index: 4;
+    top: 50%;
+    height: 0;
+    width: 0;
+    margin-top: -30px;
+}
+
+#dominikanskaSection {
+    background-image: url(images/dominikanska.JPG);
+    background-size: cover;
+}
+
+#thailandSection {
+    background-image: url(images/thailand.jpg);
+    background-size: cover;
+}
