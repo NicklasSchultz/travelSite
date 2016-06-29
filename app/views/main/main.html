@@ -1,0 +1,40 @@
+<div full-page options="vm.mainOptions">
+  <div class="section active" id="section0">
+		<h1>Nicklas & Camilla</h1>
+		<p>Här kan du följa våra resor</p>
+		<img src="images/fullPage.png" alt="fullPage" />
+	</div>
+	<div class="section " id="section1">
+	    <div class="slide">
+			<div class="intro">
+				<h1>Dominikanska</h1>
+				<p>Jul och Nyår 2015</p>
+				<button ng-click="vm.addSlide();">Click Me to Add another Slide!</button>
+			</div>
+		</div>
+
+   		<div ng-repeat="slide in vm.slides" class="slide">
+			<div class="intro" ng-click="vm.moog('ddd')" >
+				<img ng-src="{{ slide.src }}" alt="simple" />
+				<h1>{{ slide.title }}</h1>
+				<p>{{ slide.description }}</p>
+			</div>
+		</div>
+	</div>
+	<div class="section" id="section2">
+		<div class="intro">
+			<h1 ng-click="vm.moog('sss')" >Example</h1>
+			<p>HTML markup example to define 4 sections.</p>
+		</div>
+	</div>
+	<div class="section" id="section3">
+		<div class="intro">
+			<h1>Working On Tablets</h1>
+			<p>
+				Designed to fit to different screen sizes as well as tablet and mobile devices.
+				<br /><br /><br /><br /><br /><br />
+			</p>
+		</div>
+		<img src="images/tablets.png" alt="tablets" />
+	</div>
+</div>
