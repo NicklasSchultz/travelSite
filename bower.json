@@ -1,16 +1,21 @@
 {
   "name": "travelsite",
-  "description": "",
-  "main": "index.js",
+  "description": "A blog over our travels",
+  "main": "main.js",
   "authors": [
-    "Nicklas Schultz <nicklas.schultz@accedo.tv>"
+    "Nicklas Schultz"
   ],
   "license": "ISC",
   "homepage": "https://github.com/NicklasSchultz/travelSite",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/libs",
+    "test",
+    "tests"
+  ],
   "dependencies": {
-    "angular-ui-router": "^0.3.1",
-    "angular": "^1.5.7",
-    "fullpage.js": "^2.8.1",
-    "jquery-slimscroll": "^1.3.8"
+    "fullpage.js": "^2.8.1"
   }
 }

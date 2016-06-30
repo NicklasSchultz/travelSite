@@ -45,6 +45,32 @@ q:before,q:after {
 abbr,acronym { border: 0;
 }
 
+/* Style for our header texts
+    * --------------------------------------- */
+    h1{
+        font-size: 5em;
+        font-family: arial,helvetica;
+        color: #fff;
+        margin:0;
+        padding:40px 0 0 0;
+    }
+    .intro p{
+        color: #fff;
+        padding:40px 0 0 0;
+    }
+
+    /* Centered texts in each section
+    * --------------------------------------- */
+    .section{
+        text-align:center;
+    }
+
+
+    /* Bottom menu
+    * --------------------------------------- */
+    #infoMenu li a {
+        color: #fff;
+    }
 
 /* Custom CSS
  * --------------------------------------- */
@@ -94,6 +120,15 @@ p{
 
 #thailandSection {
     background-image: url(images/thailand.jpg);
+    background-size: cover;
+}
+#indonesienSection {
+    background-image: url(images/bg1.jpg);
+    background-size: cover;
+}
+
+#scrolling-slide-1 {
+    background-image: url(images/bg2.jpg);
     background-size: cover;
 }
 
