@@ -11,9 +11,7 @@ $(document).ready(function() {
 	        disableMouse: true
 		},
 		afterLoad: function(anchorLink, index){
-			console.error('HEJSAN', index);
             var loadedSection = $(this);
-
             //using index
             if(index == 3){
                 alert("Section 3 ended loading");
