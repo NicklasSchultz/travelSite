@@ -96,3 +96,10 @@ p{
     background-image: url(images/thailand.jpg);
     background-size: cover;
 }
+
+.SlideContainer { position: absolute; left: 0; top: 30px; width: 100%; overflow: hidden; }
+.Slides { position: absolute; left: 0; top: 0; height: 100%; }
+.Slides > div { float: left; height: 100%; overflow: scroll; }
+
+.Slides .Content { margin-top: 100px; text-align: center; }
+.Slides .Content a { font-size: 30px; }

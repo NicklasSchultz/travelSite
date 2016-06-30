@@ -9,11 +9,11 @@
 
   function AppController($rootScope, $state){
 
-    $rootScope.changePage = changePage;
+      $rootScope.changePage = changePage;
 
-    function changePage(){
-      $state.go($rootScope.chosenPage);
-    }
+      function changePage(pageName){
+          $state.go(pageName);
+      }
 
   }
 
