@@ -14,6 +14,12 @@ db.once('open', function() {
 
 var Trip = require("./data/models/TravelScema").Trip;
 
+Trip.find({}, function(err, data) {
+	for (var i = data.length - 1; i >= 0; i--) {
+	console.log(JSON.stringify(data[i]));
+	}
+});
+
 /* serves main page */
 app.get("/", function(req, res) {
 	res.sendfile('index.html');

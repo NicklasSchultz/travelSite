@@ -1,6 +1,4 @@
-{
-	drop: "trips"
-};
+db.trips.drop()
 db.createCollection( "trips",
    {
       validator: { $or:

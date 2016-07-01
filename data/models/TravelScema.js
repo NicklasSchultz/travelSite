@@ -8,11 +8,17 @@ var TravelSchema = new mongoose.Schema({
   images: {
     type: String,
     index: true
+  },
+  texts: {
+    type: String,
+    index: true
   }
+},
+{
+	collection : 'trips'
 });
 
 var Trip = mongoose.model('Trip', TravelSchema);
-
 module.exports = {
   Trip: Trip
 }
