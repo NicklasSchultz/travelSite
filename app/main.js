@@ -21,7 +21,8 @@ $(document).ready(function() {
             mouseWheel: true,
             hideScrollbars: false,
             fadeScrollbars: false,
-            disableMouse: true
+            disableMouse: true,
+            loopHorizontal: false
         },
         afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {
             if (anchorLink == 'dominikanskaPage' && slideIndex == 1) {
