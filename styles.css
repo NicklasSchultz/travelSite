@@ -123,13 +123,17 @@ p{
     background-size: cover;
 }
 #indonesienSection {
-    background-image: url(images/bg1.jpg);
+    background-image: url(images/thailand.jpg);
     background-size: cover;
 }
 
 #scrolling-slide-1 {
-    background-image: url(images/bg2.jpg);
+    background-image: url(images/thailand.jpg);
     background-size: cover;
+}
+
+div.fp-controlArrow.fp-prev {
+    display: none;
 }
 
 .SlideContainer { position: absolute; left: 0; top: 30px; width: 100%; overflow: hidden; }

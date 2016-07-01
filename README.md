@@ -11,7 +11,8 @@ run the following commands:
 npm install
 bower install
 
-Start monngoDB
-mongod
-Now you can start the server with:
-nodemon server.js
+Make sure you have no mongo service running
+Then run the following command:
+sudo ./start.sh
+
+it will ask for your password

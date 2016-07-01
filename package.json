@@ -22,7 +22,8 @@
     "fullpage.js": "^2.8.1",
     "mongodb": "^2.1.18",
     "mongoose": "^4.5.2",
-    "nodemon": "^1.9.2"
+    "nodemon": "^1.9.2",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "nodemon": "^1.9.2"

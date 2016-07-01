@@ -1,28 +1,35 @@
 "use strict";
 var bodyParser = require('body-parser');
 var express = require("express");
-var app = express();
 var mongoose = require('mongoose');
 var port = process.env.PORT || 5000;
+var app = express();
 
+// Connect to database
 mongoose.connect('mongodb://localhost/travels');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('Server -> Connected to database: travels');
 });
+// Database connection is setup
 
+
+var sections;
+// Fetch the mongoose schema
 var Trip = require("./data/models/TravelScema").Trip;
-
+// Fetch all the trips from the database
 Trip.find({}, function(err, data) {
-	for (var i = data.length - 1; i >= 0; i--) {
-	console.log(JSON.stringify(data[i]));
-	}
+	sections = data;
 });
 
 /* serves main page */
 app.get("/", function(req, res) {
 	res.sendfile('index.html');
+});
+
+app.get("/sections", function(req, res) {
+	res.send(sections);
 });
 
 /* serves all the static files */

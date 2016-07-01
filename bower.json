@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "fullpage.js": "^2.8.1"
+    "fullpage.js": "^2.8.1",
+    "xmlhttprequest": "*"
   }
 }
