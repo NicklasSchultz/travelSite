@@ -2,9 +2,10 @@
 var bodyParser = require('body-parser');
 var express = require("express");
 var mongoose = require('mongoose');
+var fileSystem = require('fs');
 var port = process.env.PORT || 5000;
 var app = express();
-
+var contentDir = 'data/texts';
 // Connect to database
 mongoose.connect('mongodb://localhost/travels');
 var db = mongoose.connection;
@@ -13,7 +14,28 @@ db.once('open', function() {
   console.log('Server -> Connected to database: travels');
 });
 // Database connection is setup
+var _getAllFilesFromFolder = function(dir) {
 
+    var filesystem = require("fs");
+    var results = [];
+
+    filesystem.readdirSync(dir).forEach(function(file) {
+    	console.error(file);
+        file = dir+'/'+file;
+        var stat = filesystem.statSync(file);
+
+        if (stat && stat.isDirectory()) {
+            results = results.concat(_getAllFilesFromFolder(file));
+        } else results.push(file);
+
+    });
+
+    return results;
+
+};
+
+var imgs = _getAllFilesFromFolder('data/imgs/poc');
+console.log(JSON.stringify(imgs));
 
 var sections;
 // Fetch the mongoose schema
@@ -29,7 +51,12 @@ app.get("/", function(req, res) {
 });
 
 app.get("/sections", function(req, res) {
-	res.send(sections);
+	res.send(imgs);
+});
+
+app.get("/content", function(req, res) {
+    var id = req.query.id;
+    res.sendfile(contentDir + '/' + id + '/contentPage.html');
 });
 
 /* serves all the static files */

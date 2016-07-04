@@ -1,6 +1,10 @@
 var mongoose = require("mongoose");
 
 var TravelSchema = new mongoose.Schema({
+  id: {
+    type: String,
+    index: true
+  },
   name: {
     type: String,
     index: true

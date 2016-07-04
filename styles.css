@@ -113,15 +113,18 @@ p{
     margin-top: -30px;
 }
 
+#dominikanska,
 #dominikanskaSection {
     background-image: url(images/dominikanska.JPG);
     background-size: cover;
 }
 
+#thailand,
 #thailandSection {
     background-image: url(images/thailand.jpg);
     background-size: cover;
 }
+#indonesien,
 #indonesienSection {
     background-image: url(images/thailand.jpg);
     background-size: cover;
@@ -142,3 +145,31 @@ div.fp-controlArrow.fp-prev {
 
 .Slides .Content { margin-top: 100px; text-align: center; }
 .Slides .Content a { font-size: 30px; }
+
+#carousel1 {
+    height: 100vh;
+    background-image: url(images/flaska.jpg);
+    background-size: cover;
+}
+#carousel2 {
+    height: 100vh;
+    background-image: url(images/dominikanska.jpg);
+    background-size: cover;
+}
+#carousel3 {
+    height: 100vh;
+    background-image: url(images/thailand.jpg);
+    background-size: cover;
+}
+
+.slick-prev,
+.slick-next {
+    display: none !important;
+}
+
+
+
+
+
+
+
