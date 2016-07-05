@@ -1,0 +1,43 @@
+.welcomeSection {
+	overflow: hidden;
+	display:flex;
+	height: 100vh;
+}
+.leftSection {
+	width: 50%;
+	float: left;
+	display:inline-block;
+	background-image: url(../../images/home.png);
+	background-size: cover;
+}
+.leftSection img{
+	object-fit: cover;
+}
+.rightSection {
+	padding-top: 100px;
+	width: 50%;
+	float: left;
+	display:inline-block;
+}
+
+#dominikanska,
+#dominikanskaSection {
+    background-image: url(../../images/dominikanska.JPG);
+    background-size: cover;
+}
+
+#thailand,
+#thailandSection {
+    background-image: url(../../images/thailand.jpg);
+    background-size: cover;
+}
+#indonesien,
+#indonesienSection {
+    background-image: url(../../images/thailand.jpg);
+    background-size: cover;
+}
+
+#scrolling-slide-1 {
+    background-image: url(../../images/thailand.jpg);
+    background-size: cover;
+}

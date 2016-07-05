@@ -113,28 +113,6 @@ p{
     margin-top: -30px;
 }
 
-#dominikanska,
-#dominikanskaSection {
-    background-image: url(images/dominikanska.JPG);
-    background-size: cover;
-}
-
-#thailand,
-#thailandSection {
-    background-image: url(images/thailand.jpg);
-    background-size: cover;
-}
-#indonesien,
-#indonesienSection {
-    background-image: url(images/thailand.jpg);
-    background-size: cover;
-}
-
-#scrolling-slide-1 {
-    background-image: url(images/thailand.jpg);
-    background-size: cover;
-}
-
 div.fp-controlArrow.fp-prev {
     display: none;
 }
@@ -166,8 +144,6 @@ div.fp-controlArrow.fp-prev {
 .slick-next {
     display: none !important;
 }
-
-
 
 .my-container {
     background: #FFF;
