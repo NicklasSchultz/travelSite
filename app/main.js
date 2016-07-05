@@ -5,7 +5,8 @@ $(document).ready(function() {
     var mainContentDiv = $('#fullpage'),
         fullpageObject = $.fn.fullpage,
         anchors = ['welcomePage'],
-        ANCHOR_TO_ID = {};
+        ANCHOR_TO_ID = {},
+        contentLoaded = {};
 
     // Setup the differnet secitons(Trips)
     initSections();
@@ -42,13 +43,13 @@ $(document).ready(function() {
             fullpageObject.setKeyboardScrolling(true, 'right');
             fullpageObject.setKeyboardScrolling(true, 'left');
         }
-        if (slideIndex == 1) {
+        if (slideIndex == 1 && !contentLoaded[anchorLink]) {
             getContentPage(anchorLink);
+            contentLoaded[anchorLink] = true;
             fullpageObject.setAllowScrolling(false);
             fullpageObject.setKeyboardScrolling(false, 'right');
             fullpageObject.setKeyboardScrolling(false, 'left');
         } else {
-            getContentPage(anchorLink);
             fullpageObject.setAllowScrolling(true);
             fullpageObject.setKeyboardScrolling(true, 'right');
             fullpageObject.setKeyboardScrolling(true, 'left');
@@ -92,6 +93,24 @@ $(document).ready(function() {
         newElement.innerHTML = innerHtml;
         childElement.appendChild(newElement);
         fullpageObject.reBuild();
+        setTimeout(function() {
+            $('.slider-big').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+                asNavFor: '.slider-nav'
+            });
+            $('.slider-nav').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                asNavFor: '.slider-big',
+                dots: true,
+                centerMode: true,
+                focusOnSelect: true
+            });
+            fullpageObject.reBuild();
+        }, 1000);
     }
 
     // Gets the sections from the server

@@ -148,6 +148,11 @@ div.fp-controlArrow.fp-prev {
 .my-container {
     background: #FFF;
 }
-
+.featured-slide-2 {
+    height: 70vh;
+}
+.slide-link-2 {
+    height: 30vh;
+}
 
 
