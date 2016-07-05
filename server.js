@@ -16,13 +16,12 @@ db.once('open', function() {
 // Database connection is setup
 var _getAllFilesFromFolder = function(dir) {
 
-    var filesystem = require("fs");
     var results = [];
 
-    filesystem.readdirSync(dir).forEach(function(file) {
+    fileSystem.readdirSync(dir).forEach(function(file) {
     	console.error(file);
         file = dir+'/'+file;
-        var stat = filesystem.statSync(file);
+        var stat = fileSystem.statSync(file);
 
         if (stat && stat.isDirectory()) {
             results = results.concat(_getAllFilesFromFolder(file));
@@ -51,11 +50,12 @@ app.get("/", function(req, res) {
 });
 
 app.get("/sections", function(req, res) {
-	res.send(imgs);
+	res.send(sections);
 });
 
 app.get("/content", function(req, res) {
     var id = req.query.id;
+    console.log( req.query);
     res.sendfile(contentDir + '/' + id + '/contentPage.html');
 });
 

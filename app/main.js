@@ -1,17 +1,11 @@
 "use strict";
 /*globals $:false */
 $(document).ready(function() {
-    $('.your-class').slick({
-        infinite: true,
-        speed: 500,
-        fade: true,
-        cssEase: 'linear'
-    });
-
     // Set static vars
     var mainContentDiv = $('#fullpage'),
         fullpageObject = $.fn.fullpage,
-        anchors = ['welcomePage', 'dominikanskaPage', 'thailandPage', 'indonesienPage'];
+        anchors = ['welcomePage'],
+        ANCHOR_TO_ID = {};
 
     // Setup the differnet secitons(Trips)
     initSections();
@@ -73,61 +67,51 @@ $(document).ready(function() {
 
     // Denna funktion skapar alla sections (alla olika resor)
     function initSections() {
-        var sections = getSections(), // Get trips from server
-            i = 0, // index
-            nrOfSections, // = sections.length,
-            section = null;
+        getSections().then(function(sections) {
+            /* var sections = [{
+                 id: 'dominikanska',
+                 name: 'Dominikanska',
+                 img: 'app/images/dominikanska.jpg',
+                 texts: 'Dominikanska Rupubliken'
+             }, {
+                 id: 'thailand',
+                 name: 'Thailand',
+                 img: 'app/images/thailand.jpg',
+                 texts: 'Thailand'
+             }, {
+                 id: 'indonesien',
+                 name: 'Indonesien',
+                 img: 'app/images/indonesien.jpg',
+                 texts: 'indonesien'
+             }];*/
 
-        // Used for testing
-        sections = [{
-            id: 'dominikanska',
-            name: 'Dominikanska',
-            img: 'app/images/dominikanska.jpg',
-            texts: 'Dominikanska Rupubliken'
-        }, {
-            id: 'thailand',
-            name: 'Thailand',
-            img: 'app/images/thailand.jpg',
-            texts: 'Thailand'
-        }, {
-            id: 'indonesien',
-            name: 'Indonesien',
-            img: 'app/images/indonesien.jpg',
-            texts: 'indonesien'
-        }];
-        nrOfSections = 3;
+            var i = 0, // index
+                nrOfSections = sections.length,
+                section = null;
+            // Loop through all sections and create a setion for each section
+            for (i; i < nrOfSections; i++) {
+                ANCHOR_TO_ID[sections[i].name + 'Page'] = sections[i].id;
+                anchors.push(sections[i].name + 'Page'); // Push the section name to the anchors for fullpage (Ignorera camilla)
+                // Skapa en section
+                section = SectionsModule.createSection(sections[i]); // jshint ignore:line
+                mainContentDiv.append(section); // Add section to the DOM (Lägger till section elementet i själva html)
+                ContentModule.addContentPage(sections[i].id + '-slide', sections[i].name, sections[i].id); // jshint ignore:line
+            }
+            // When sections is setup init the fullpage plugin
 
-        // Loop through all sections and create a setion for each section
-        for (i; i < nrOfSections; i++) {
-            anchors.push(sections[i].name + 'Page'); // Push the section name to the anchors for fullpage (Ignorera camilla)
-            // Skapa en section
-            section = SectionsModule.createSection(sections[i]); // jshint ignore:line
-            mainContentDiv.append(section); // Add section to the DOM (Lägger till section elementet i själva html)
-            ContentModule.addContentPage(sections[i].id + '-slide', sections[i].name, sections[i].id); // jshint ignore:line
-        }
-        // When sections is setup init the fullpage plugin
+            //getContentPage('dominikanska');
+            setupFullpageJS();
+        });
 
-        //getContentPage('dominikanska');
-        setupFullpageJS();
     }
 
-    function getContentPage(id) {
-        id = 'dominikanska';
-        var parameters = {
+    function getContentPage(anchor) {
+        var id = ANCHOR_TO_ID[anchor];
+        Api.getContentPage({ // jshint ignore:line
             id: id
-        };
-        $.ajax({
-            type: "GET",
-            url: '/content',
-            data: parameters,
-            success: function(responseText) {
-                setContentInformation(responseText);
-            },
-            error: function() {
-                alert('Error occured');
-            }
+        }).then(function (contentHtml) {
+            setContentInformation(contentHtml);
         });
-        return false;
     }
 
     function setContentInformation(innerHtml) {
@@ -136,22 +120,11 @@ $(document).ready(function() {
         var newElement = document.createElement('div');
         newElement.innerHTML = innerHtml;
         childElement.appendChild(newElement);
-        $.fn.fullpage.reBuild();
+        fullpageObject.reBuild();
     }
 
     // Gets the sections from the server
     function getSections() {
-        var xhttp = new XMLHttpRequest(),
-            sections;
-
-        xhttp.onreadystatechange = function() {
-            if (xhttp.readyState == 4 && xhttp.status == 200) {
-                sections = JSON.parse(xhttp.responseText);
-                return sections;
-            }
-        };
-        // Get the /sections from server. Kommer göra ett anrop till servern på url /sections, vilket kommer returnera alla sektioner vi har i databasen
-        xhttp.open("GET", "/sections", true);
-        xhttp.send();
+        return Api.getSections(null); // jshint ignore:line
     }
 });
