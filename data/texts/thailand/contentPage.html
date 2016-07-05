@@ -3,13 +3,11 @@
 <p>
 	Resan startade i Ao Nang, vilket ligger i närheten av Krabi. Camilla och Emelie kom dit dagen innan mig(Nicklas) och Albin. De första dagarna bodde vi på ett riktigt party hostel, Slumber Party.
 </p>
-	<img src="images/flaska.jpg">
 
 <h3>Phi Phi</h3>
 <p>
 	Resan fortsatte till Phi Phi
 </p>
-<img src="images/flaska.jpg">
 
 <h3>Kho Lanta</h3>
 <p>
@@ -19,10 +17,61 @@
 <p>
 	Resan fortsatte till Kho Phangan
 </p>
-<img src="images/flaska.jpg">
 <h3>The bussride from hell</h3>
 <p>
 	Evighetsresan från Kho Phangan till flygplatsen
 </p>
-<img src="images/flaska.jpg">
+<div id="second-slider" class="my-container">
+    <div class="slider-container">
+        <div class="slider slider-big">
+            <div class="featured-slide featured-slide-2">NUMBER: 1
+                <br />This is the first slider item.
+            </div>
+            <div class="featured-slide featured-slide-2">NUMBER: 2
+                <br />This is the second slider item.
+            </div>
+            <div class="featured-slide featured-slide-2">NUMBER: 3
+                <br />This is the third slider item.
+            </div>
+            <div class="featured-slide featured-slide-2">NUMBER: 4
+                <br />This is the fourth slider item.
+            </div>
+        </div>
+    </div>
+    <div class="slider-nav-container">
+        <div class="wrapper">
+            <div class="slider-nav">
+                <div class="slide-link slide-link-2"> <span class="nav-num">1</span><span class="nav-title">FIRST SLIDE</span>
+
+                </div>
+                <div class="slide-link slide-link-2"> <span class="nav-num">2</span><span class="nav-title">SECOND SLIDE</span>
+
+                </div>
+                <div class="slide-link slide-link-2"> <span class="nav-num">3</span><span class="nav-title">THIRD SLIDE</span>
+
+                </div>
+                <div class="slide-link slide-link-2"> <span class="nav-num">4</span><span class="nav-title">FOURTH SLIDE</span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </br>
+<script type="text/javascript">
+	 $('.slider-big').slick({
+	  slidesToShow: 1,
+	  slidesToScroll: 1,
+	  arrows: false,
+	  fade: true,
+	  asNavFor: '.slider-nav'
+	});
+	$('.slider-nav').slick({
+	  slidesToShow: 3,
+	  slidesToScroll: 1,
+	  asNavFor: '.slider-big',
+	  dots: true,
+	  centerMode: true,
+	  focusOnSelect: true
+});
+</script>>

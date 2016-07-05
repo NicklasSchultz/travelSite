@@ -51,12 +51,13 @@ $(document).ready(function() {
                     fullpageObject.setKeyboardScrolling(true, 'right');
                     fullpageObject.setKeyboardScrolling(true, 'left');
                 }
-                if (anchorLink === 'IndonesienPage' && slideIndex == 1) {
+                if (slideIndex == 1) {
                     getContentPage(anchorLink);
                     fullpageObject.setAllowScrolling(false);
                     fullpageObject.setKeyboardScrolling(false, 'right');
                     fullpageObject.setKeyboardScrolling(false, 'left');
                 } else {
+                    getContentPage(anchorLink);
                     fullpageObject.setAllowScrolling(true);
                     fullpageObject.setKeyboardScrolling(true, 'right');
                     fullpageObject.setKeyboardScrolling(true, 'left');
@@ -110,12 +111,12 @@ $(document).ready(function() {
         Api.getContentPage({ // jshint ignore:line
             id: id
         }).then(function (contentHtml) {
-            setContentInformation(contentHtml);
+            setContentInformation(contentHtml, id);
         });
     }
 
-    function setContentInformation(innerHtml) {
-        var parent = document.getElementById('indonesien-slide-content');
+    function setContentInformation(innerHtml, id) {
+        var parent = document.getElementById(id + '-slide-content');
         var childElement = parent.children[0].children[0];
         var newElement = document.createElement('div');
         newElement.innerHTML = innerHtml;
