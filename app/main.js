@@ -109,6 +109,9 @@ $(document).ready(function() {
                 centerMode: true,
                 focusOnSelect: true
             });
+            $('.slider-nav').on('afterChange', function(event, slick, currentSlide){
+              console.log(currentSlide);
+            });
             fullpageObject.reBuild();
         }, 1000);
     }

@@ -41,3 +41,27 @@
     background-image: url(../../images/thailand.jpg);
     background-size: cover;
 }
+.carouselPic1 {
+	background-image: url(../../images/pic1.jpeg);
+    background-size: cover;
+}
+.carouselPic2 {
+	background-image: url(../../images/pic2.jpg);
+    background-size: cover;
+}
+.carouselPic3 {
+	background-image: url(../../images/pic3.jpeg);
+    background-size: cover;
+}
+.carouselPic4 {
+	background-image: url(../../images/pic4.jpeg);
+    background-size: cover;
+}
+.carouselPic5 {
+	background-image: url(../../images/pic5.jpg);
+    background-size: cover;
+}
+.slider-container {
+	margin-bottom: 50px;
+}
+
