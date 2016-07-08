@@ -86,10 +86,19 @@ body{
 	position: relative;
 }
 h1{
-	font-size: 6em;
+	font-size: 10em;
+    color:#FFF;
+}
+h2{
+    font-size: 8em;
+    color:#FFF;
+}
+h3{
+    font-size: 6em;
+    color:#FFF;
 }
 p{
-	font-size: 2em;
+	font-size: 4em;
 }
 .intro p{
 	width: 50%;

@@ -105,15 +105,45 @@ $(document).ready(function() {
                 slidesToShow: 3,
                 slidesToScroll: 1,
                 asNavFor: '.slider-big',
-                dots: true,
                 centerMode: true,
                 focusOnSelect: true
             });
-            $('.slider-nav').on('afterChange', function(event, slick, currentSlide){
-              console.log(currentSlide);
+            $('.slider-nav').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+              handleCarousel(nextSlide, nextSlide > currentSlide);
             });
             fullpageObject.reBuild();
         }, 1000);
+    }
+
+    function handleCarousel(index, right) {
+        console.error(index + ' ' + right);
+        var slideLeaving;
+        switch(index) {
+            case 1:
+            if(right) {
+                var elements = document.getElementsByClassName('carouselPic4');
+                for (var i = elements.length - 1; i >= 0; i--) {
+                    elements[i].style.backgroundImage = "url('images/pic6.jpg')";
+                }
+                elements = document.getElementsByClassName('carouselPic3');
+                for (var i = elements.length - 1; i >= 0; i--) {
+                    elements[i].style.backgroundImage = "url('images/pic6.jpg')";
+                }
+            } else {
+
+            }
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            default:
+                break;
+        }
     }
 
     // Gets the sections from the server

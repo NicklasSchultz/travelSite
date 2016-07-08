@@ -19,6 +19,21 @@
 	float: left;
 	display:inline-block;
 }
+.welcomeThailand {
+	overflow: hidden;
+	display:flex;
+	height: 100vh;
+}
+.thailand {
+	width: 50%;
+	float: left;
+	display:inline-block;
+	background-image: url(../../data/imgs/thailand/thailand.jpg);
+	background-size: cover;
+}
+.contentSection {
+	height: 100vh;
+}
 
 #dominikanska,
 #dominikanskaSection {
@@ -62,7 +77,9 @@
     background-size: cover;
 }
 .slider-container {
-	margin-bottom: 50px;
+	padding-bottom: 30px;
+    padding-top: 90px;
+    background-color: rgb(74, 111, 177);
 }
 .contentSlide {
 	background-color: rgb(74, 111, 177);
